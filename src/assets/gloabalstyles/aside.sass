@@ -1,0 +1,24 @@
+@use "stlyes" as s
+main
+	display: flex
+	height: 100%
+	position: relative
+	aside
+		position: absolute
+		z-index: 10
+		background-color: s.$clrbluey1
+		border-radius: 0 40px 40px 0
+		width: 2%
+		height: 100%
+		transition: width 0.5s ease-out
+		> *
+			opacity: 0
+			transition: opacity 0.2s ease-out
+		&:hover
+			width: 130px
+			> *
+				opacity: 100
+				transition: opacity 1s ease-out
+	.content
+		position: relative
+		padding-left: 3%
