@@ -1,7 +1,21 @@
 <script lang="ts" setup>
 import { RouterLink, RouterView } from 'vue-router'
+import { ref } from 'vue'
+const Togle = () =>{
+	mobmen.value=!mobmen.value
+}
+const mobmen = ref(false)
 </script>
 <template>
+	<div class="mobile_menu" v-if="mobmen">
+		<ul>
+			<li><RouterLink to="/">Главная</RouterLink></li>
+			<li><RouterLink to="/semester1">Первый семестр</RouterLink></li>
+			<li><RouterLink to="/">Второй семестр</RouterLink></li>
+			<li><RouterLink to="/services">Услуги</RouterLink></li>
+			<li><RouterLink to="/">Авторизация</RouterLink></li>
+		</ul>
+	</div>
     <div class="page-wrapper">
         <nav class="navbar">
             <ul>
@@ -11,6 +25,9 @@ import { RouterLink, RouterView } from 'vue-router'
                 <li><RouterLink to="/services">Услуги</RouterLink></li>
                 <li><RouterLink to="/">Авторизация</RouterLink></li>
             </ul>
+			<div class="menu">
+				<img style="height: 30px; display: block;" src="../public/menu-svgrepo-com.svg" alt="" @click="Togle">
+			</div>
             <header>
                 <div class="container">
                     <div>Группа ЭФБО 07 23</div>
@@ -20,6 +37,7 @@ import { RouterLink, RouterView } from 'vue-router'
             </header>
         </nav>
         <main class="content">
+			
             <RouterView />
         </main>
         <footer>
@@ -51,6 +69,8 @@ import { RouterLink, RouterView } from 'vue-router'
 				color: s.$clrbluey2
 				&:active
 					color: s.$clrlight1
+	.menu
+		display: none
 	header
 		display: flex
 		.container
@@ -68,10 +88,12 @@ html, body
 	display: flex
 	flex-direction: column
 .content
-	flex: 1 0 auto			
+	flex: 1 0 auto
+	.mobile_menu
+		display: none
 footer
 	flex-shrink: 0
-	padding: 2% 0
+	padding: 1% 0
 	justify-content: center	
 	background-color: s.$clrbluey3
 	display: flex
@@ -81,5 +103,35 @@ footer
 		margin: auto
 		display: flex
 		flex-direction: row
-			
+@media (max-width: 800px)
+	.navbar
+		height: 60px
+		justify-content: space-between
+		ul
+			display: none
+		.menu
+			align-content: center
+			display: block
+			padding-left: 40px
+			img
+				margin: auto
+		header
+			padding-right: 60px 
+			.container
+				display: none
+	.mobile_menu
+		margin-top: 65px 
+		background-color: s.$clrbluey3
+		position: absolute
+		display: block
+		width: 100%
+		z-index: 100
+		ul
+			li
+				text-align: center	
+				a
+					display: block
+					color: s.$clrbluey2
+					font-size: 2rem
+					padding: 20px 0
 </style>

@@ -223,5 +223,8 @@ section
 		color: black
 		text-decoration: none
 		cursor: pointer
-
+@media (max-width: 800px)
+	.projects
+		display: flex
+		flex-direction: column
 </style>
