@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { RouterLink, RouterView } from 'vue-router'
 import { ref } from 'vue'
-const Togle = () =>{
+const Togle = () => {
 	mobmen.value=!mobmen.value
 }
 const mobmen = ref(false)
@@ -14,6 +14,7 @@ const mobmen = ref(false)
 			<li><RouterLink to="/">Второй семестр</RouterLink></li>
 			<li><RouterLink to="/services">Услуги</RouterLink></li>
 			<li><RouterLink to="/">Авторизация</RouterLink></li>
+			<li><RouterLink to="/javascript">JavaScript</RouterLink></li>
 		</ul>
 	</div>
     <div class="page-wrapper">
@@ -24,6 +25,7 @@ const mobmen = ref(false)
                 <li><RouterLink to="/">Второй семестр</RouterLink></li>
                 <li><RouterLink to="/services">Услуги</RouterLink></li>
                 <li><RouterLink to="/">Авторизация</RouterLink></li>
+				<li><RouterLink to="/javascript">JavaScript</RouterLink></li>
             </ul>
 			<div class="menu">
 				<img style="height: 30px; display: block;" src="../public/menu-svgrepo-com.svg" alt="" @click="Togle">
