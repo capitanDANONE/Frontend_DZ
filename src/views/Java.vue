@@ -1,12 +1,33 @@
 <template>
 	<div>
-	  <h1>Приветствие и другие задания</h1>
-  
+	  <h1>10 тетрадь</h1>
 	  <button @click="greetUser">Задание 1: Приветствие</button>
 	  <button @click="checkAge">Задание 2: Проверка возраста</button>
 	  <button @click="guessNumber">Задание 3: Угадай число</button>
 	  <button @click="checkPassword">Задание 4: Проверка пароля</button>
 	  <button @click="calculate">Задание 5: Простой калькулятор</button>
+	</div>
+	<div>
+	  <h1>11 тетрадь</h1>
+	  <form @submit.prevent="submitForm">
+		<label for="name">Name</label>
+		<input id="name" type="text">
+
+		<lablel for="e-mail">E-mail</lablel>
+		<input type="email" id="e-mail">
+
+		<lablel for="tele">Telephone</lablel>
+		<input type="tel" id="tele">
+
+		<lablel for="date">Date</lablel>
+		<input type="date" id="date">
+
+		<lablel for="comment">Comment</lablel>
+		<textarea type="text" id="comment"></textarea>
+
+		<lablel for="submit">Submit</lablel>
+		<input id="submit" type="submit">
+	  </form>
 	</div>
 </template>
   
@@ -102,13 +123,40 @@ const calculate = () => {
 		alert("Некорректный ввод чисел.");
 	}
 }
+const submitForm = (event: Event) => {
+	const submitEvent = event as SubmitEvent;
+	const form = submitEvent.target as HTMLFormElement
+	const name = (form.elements.namedItem('name') as HTMLInputElement).value;
+	const email = (form.elements.namedItem('e-mail') as HTMLInputElement).value;
+	const telephone = (form.elements.namedItem('tele') as HTMLInputElement).value;
+	const date = (form.elements.namedItem('date') as HTMLInputElement).value;
+	const comment = (form.elements.namedItem('comment') as HTMLTextAreaElement).value;
+	console.log(`
+	Имя: ${name}\n
+	E-mail: ${email}\n
+	Телефон: ${telephone}\n
+	Дата: ${date}\n
+	Коммениарий: ${comment}\n`)
+}
 </script>
 
 <style scoped>
 button {
-display: block;
-margin: 10px 0;
-padding: 8px 16px;
-font-size: 16px;
+	display: block;
+	margin: 10px 0;
+	padding: 8px 16px;
+	font-size: 16px;
+}
+form {
+	display: flex;
+	flex-direction: column;
+	width: 250px;
+	> * {
+		display: block;
+	}
+	> #comment{
+		overflow: hidden;
+		resize: vertical;
+	}
 }
 </style>
