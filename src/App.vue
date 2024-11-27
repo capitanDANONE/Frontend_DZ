@@ -39,7 +39,6 @@ const mobmen = ref(false)
             </header>
         </nav>
         <main class="content">
-			
             <RouterView />
         </main>
         <footer>
