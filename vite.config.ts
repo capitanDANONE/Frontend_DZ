@@ -2,6 +2,7 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 
 export default defineConfig({
+  base: 'https://capitandanone.github.io/Frontend_DZ/',
   plugins: [vue()],
   css: {
     preprocessorOptions: {
